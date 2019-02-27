@@ -10,14 +10,24 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state ={
-      loggedIn:false
+      loggedIn:false,
+      username: "",
     }
     this.handleLogin = this.handleLogin.bind(this);
   }
-  handleLogin(){
-    this.setState(prevState =>({
-      loggedIn: !prevState.loggedIn
-    }));
+  handleLogin =(username)=>{
+    if(this.state.loggedIn===false){
+    this.setState({
+      loggedIn: true,
+      username
+    });
+    console.log(this.state.username);
+  }else{
+    this.setState({
+      loggedIn:false,
+      username:" "
+    });
+  }
   }
   render() {
     if(this.state.loggedIn===true){

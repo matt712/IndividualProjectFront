@@ -9,19 +9,24 @@ class Login extends Component{
         };
         this.updateState = (e) =>{
             this.setState({
-                username: e.target.value,
-                password: e.target.value
+                username: e.target.user,
+                password: e.target.pass
             })
+        }
+        this.handleLogin = (e) =>{
+            e.preventDefault();
+            this.props.handleLogin(e.target.value);
         }
     }
     render(){
+        const user = this.props.user;
         return(
             <div className="loginBox">
-                <form onSubmit={this.props.handleLogin}>
+                <form onSubmit={this.handleLogin} value={user}>
                     username: <br/>
-                    <input type="text" value={this.state.username} onChange={this.updateState}/>
+                    <input type="text" name="user" value={this.state.username} onChange={this.updateState}/>
                      <br/>password: <br/>
-                    <input type="text" value={this.state.password} onChange={this.updateState}/>
+                    <input type="text" name="pass" value={this.state.password} onChange={this.updateState}/>
                     <br/>
                     <input type="submit" value="Submit"/>
                 </form>
