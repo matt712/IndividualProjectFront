@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 
 class DisplayUser extends Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
+        console.log(this.props.username)
+
     }
     render(){
         return(
+            
             <div>
-                <p className="DisplayUser">user: {this.props.username}}</p>
-                <button className="LogoutButton" type="button" onClick={this.props.handleLogin}>Logout</button>
+
+                <p className="DisplayUser">user: {this.props.username}</p>
+                <button className="LogoutButton" type="button" onClick={this.props.handleLogout}>Logout</button>
             </div>
         );
     }
