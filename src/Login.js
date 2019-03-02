@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Axios from 'axios';
 
 class Login extends Component{
     constructor(props){
@@ -21,9 +20,9 @@ class Login extends Component{
         }
     }
     render(){
-        const user = this.props.user;
         return(
             <div className="loginBox">
+            <h2>Log in</h2>
                 <form onSubmit={this.handleLogin}>
                     username: <br/>
                     <input type="text" name="username" value={this.state.username} onChange={this.updateState}/>

@@ -5,6 +5,7 @@ import HeadText from './HeadText';
 import Login from './Login';
 import DisplayUser from './DisplayUser';
 import NotesForChar from './NotesForChar';
+import CreateAccount from './CreateAccount';
 import Axios from 'axios';
 
 class App extends Component {
@@ -57,6 +58,8 @@ class App extends Component {
       <div className="App2">
         <HeadText/>
         <Login 
+        handleLogin={this.handleLogin}/>
+        <CreateAccount
         handleLogin={this.handleLogin}/>
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />

@@ -29,6 +29,9 @@ h1{
 .loginBox{
   text-align: center;
 }
+.createBox{
+  text-align: center;
+}
 .DisplayUser{
   position: fixed;
   top:0;
@@ -38,4 +41,9 @@ h1{
   position: fixed;
   top:7%;
   right: 1%;
+}
+.DeleteButton{
+  position: fixed;
+  top:14%;
+  right:1%;
 }
