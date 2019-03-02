@@ -5,40 +5,45 @@ import HeadText from './HeadText';
 import Login from './Login';
 import DisplayUser from './DisplayUser';
 import NotesForChar from './NotesForChar';
+import Axios from 'axios';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state ={
       loggedIn: false,
-      username: "fail",
+      user: "fail"
     }
     this.handleLogin = this.handleLogin.bind(this);
   }
 
   handleLogout = () => {
     this.setState({
-      loggedIn: false, username: "fail"
+      loggedIn: false, user: "fail"
     });
   }
 
-  handleLogin =(username)=>{
-    console.log(username);
-    
-    if(this.state.loggedIn===false){
-    this.setState({loggedIn: true, username});
-  }else{
-    username = "";
-    this.setState({loggedIn:false, username});
-  }
+  handleLogin =(username, password)=>{
+    var self = this;
+    var url = `http://localhost:8080/IndividualProject/api/user/getAUser/${username}`;
+    Axios.get(url).then(function(response){
+      var user2 = response.data.username;
+      if(password === response.data.password){
+        self.setState({loggedIn:true, user:user2});
+      }else{
+        alert("Wrong password");
+      }
+    }).catch(function(error){
+      alert("Wrong username");
+    });
   }
   render() {
-    if(this.state.loggedIn==true){
+    if(this.state.loggedIn===true){
       return (
         <div className="App">
         <HeadText/>
-        <DisplayUser username={this.state.username} handleLogout={this.handleLogout}/>
-        <NotesForChar/>
+        <DisplayUser username={this.state.user} handleLogout={this.handleLogout}/>
+        <NotesForChar username={this.state.user}/>
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p className="App-text">
@@ -51,7 +56,7 @@ class App extends Component {
       return(
       <div className="App2">
         <HeadText/>
-        <Login username={this.state.username}
+        <Login 
         handleLogin={this.handleLogin}/>
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />

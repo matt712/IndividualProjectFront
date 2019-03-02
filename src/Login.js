@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import Axios from 'axios';
 
 class Login extends Component{
     constructor(props){
         super(props);
         this.state={
-            username:"default",
-            password:"temp"
+            username:"Matt",
+            password:"eggs"
         };
         this.updateState = (e) =>{
             const value = e.target.value;
@@ -13,11 +14,10 @@ class Login extends Component{
             this.setState({
                 [name]: value
             });
-            console.log(this.state.password);
         }
         this.handleLogin = (e) =>{
             e.preventDefault();
-            this.props.handleLogin(this.state.username);
+            this.props.handleLogin(this.state.username, this.state.password);
         }
     }
     render(){
@@ -28,7 +28,7 @@ class Login extends Component{
                     username: <br/>
                     <input type="text" name="username" value={this.state.username} onChange={this.updateState}/>
                      <br/>password: <br/>
-                    <input type="text" name="password" value={this.state.password} onChange={this.updateState}/>
+                    <input type="password" name="password" value={this.state.password} onChange={this.updateState}/>
                     <br/>
                     <input type="submit" value="Submit"/>
                 </form>
