@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import AccountSettings from './AccountSettings';
 
 class DisplayUser extends Component{
     constructor(props){
@@ -7,7 +8,11 @@ class DisplayUser extends Component{
         this.state={displaySettings:false}
     }
     handleDisplaySettings =()=>{
+        if(this.state.displaySettings===false){
         this.setState({displaySettings:true});
+        }else{
+            this.setState({displaySettings:false});
+        }
     }
     deleteAccount =()=>{
         var url = `http://localhost:8080/IndividualProject/api/user/deleteUser/${this.props.username}`;
@@ -18,13 +23,16 @@ class DisplayUser extends Component{
         });
         this.props.handleLogout();
     }
+    handleLogout = ()=>{
+        this.props.handleLogout();
+    }
     render(){
         if(this.state.displaySettings===false){
             return(
                 <div>
                     <p className="DisplayUser">user: {this.props.username}</p>
                     <button className="LogoutButton" type="button" onClick={this.props.handleLogout}>Logout</button>
-                    <button className="DeleteButton" type="button" onClick={this.handleDisplaySettings}>Settings</button>
+                    <button className="SettingsButton" type="button" onClick={this.handleDisplaySettings}>Settings</button>
                 </div>
             );
         }else{
@@ -32,7 +40,7 @@ class DisplayUser extends Component{
                 <div>
                     <p className="DisplayUser">user: {this.props.username}</p>
                     <button className="LogoutButton" type="button" onClick={this.props.handleLogout}>Logout</button>
-                    <button className="DeleteButton" type="button" onClick={this.deleteAccount}>Delete Account</button>
+                    <AccountSettings handleLogout={this.handleLogout} handleDisplaySettings={this.handleDisplaySettings}/>
                 </div>
             )
         }

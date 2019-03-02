@@ -42,8 +42,14 @@ h1{
   top:7%;
   right: 1%;
 }
-.DeleteButton{
+.SettingsButton{
   position: fixed;
-  top:14%;
+  top:11%;
   right:1%;
+}
+.accountSettings{
+  position: fixed;
+  top:11%;
+  right:1%;
+  text-align: right;
 }
