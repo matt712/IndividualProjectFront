@@ -4,8 +4,9 @@ import './App.css';
 import HeadText from './HeadText';
 import Login from './Login';
 import DisplayUser from './DisplayUser';
-import NotesForChar from './NotesForChar';
 import CreateAccount from './CreateAccount';
+import CharSelectionBox from './CharacterSelectionBox';
+
 import Axios from 'axios';
 
 class App extends Component {
@@ -44,7 +45,7 @@ class App extends Component {
         <div className="App">
         <HeadText/>
         <DisplayUser username={this.state.user} handleLogout={this.handleLogout}/>
-        <NotesForChar username={this.state.user}/>
+        <CharSelectionBox username={this.state.user}/>
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p className="App-text">
@@ -57,10 +58,8 @@ class App extends Component {
       return(
       <div className="App2">
         <HeadText/>
-        <Login 
-        handleLogin={this.handleLogin}/>
-        <CreateAccount
-        handleLogin={this.handleLogin}/>
+        <Login handleLogin={this.handleLogin}/>
+        <CreateAccount/>
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p className="App-text">
