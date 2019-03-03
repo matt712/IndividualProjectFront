@@ -9,7 +9,7 @@ class DeleteNoteButton extends Component{
     deleteNote =()=>{
        var url = `http://localhost:8080/IndividualProject/api/MatchUpNote/deleteMatchUpNote/${this.props.id}`
        Axios.delete(url).then(function(response){
-            alert("Deletion successful");
+            alert(response.data.message);
        }).catch(function(response){
             alert("Deletion failed, try again");
        });
@@ -23,8 +23,7 @@ class DeleteNoteButton extends Component{
             var url = `http://localhost:8080/IndividualProject/api/MatchUpNote/updateMatchupNote/${this.props.id}`;
             var tempCont = this.state.contents;
             Axios.put(url, tempCont).then(function(response){
-                alert("Note updated");
-                console.log(response.data);
+                alert(response.data.message);
             }).catch(function(error){
                 alert("Note update failed, reverted to original state");
             });

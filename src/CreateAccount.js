@@ -24,7 +24,7 @@ class CreateAccount extends Component{
             var body = { username, password };
             if(this.state.password === this.state.confirmPassword){
                 Axios.post(url,body).then(function(response){
-                    alert("Account created, please log in");
+                    alert(response.data.message);
                 }).catch(function(error){
                     alert("Something went wrong with account creation, \n Try another username");
                 });

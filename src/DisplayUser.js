@@ -17,7 +17,7 @@ class DisplayUser extends Component{
     deleteAccount =()=>{
         var url = `http://localhost:8080/IndividualProject/api/user/deleteUser/${this.props.username}`;
         Axios.delete(url).then(function(response){
-            alert("Account successfully deleted");
+            alert(response.data.message);
         }).catch(function(error){
             alert("Account deletion failed");
         });

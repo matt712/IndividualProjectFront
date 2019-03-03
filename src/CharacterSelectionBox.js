@@ -23,10 +23,10 @@ class CharSelectionBox extends Component{
             var tempUser = this.props.username;
             var body = { vsCharacter: tempCharacter, contents: tempCont, username: tempUser};
             Axios.post(url, body).then(function(response){
-                alert("note created");
-                console.log(response.data);
+                console.log(response);
+                alert(response.data.message);
             }).catch(function(error){
-                alert("note creation failed");
+                alert("Note creation error: server error");
             });
         }
     }

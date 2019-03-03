@@ -16,7 +16,7 @@ class AccountSettings extends Component{
     deleteAccount =()=>{
         var url = `http://localhost:8080/IndividualProject/api/user/deleteUser/${this.props.user}`;
         Axios.delete(url).then(function(response){
-            alert("Account successfully deleted");
+            alert(response.data.message);
         }).catch(function(error){
             alert("Account deletion failed");
         });
@@ -28,7 +28,7 @@ class AccountSettings extends Component{
         var password = this.state.password;
         if(password === this.state.confirmPassword){
             Axios.put(url, password).then(function(response){
-                alert("Account updated");
+                alert(response.data.message);
             }).catch(function(error) {
                 alert("Update failed, \n Try a different username");
             });
