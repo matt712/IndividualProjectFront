@@ -23,10 +23,10 @@ class DeleteNoteButton extends Component{
             var url = `http://localhost:8080/IndividualProject/api/MatchUpNote/updateMatchupNote/${this.props.id}`;
             var tempCont = this.state.contents;
             Axios.put(url, tempCont).then(function(response){
-                alert("note created");
+                alert("Note updated");
                 console.log(response.data);
             }).catch(function(error){
-                alert("note creation failed");
+                alert("Note update failed, reverted to original state");
             });
             this.setState({updating:false});
         }else{

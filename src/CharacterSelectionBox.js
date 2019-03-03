@@ -42,11 +42,11 @@ class CharSelectionBox extends Component{
     }
     render(){
         return (
-            <div>
+            <div className="charSelectBox">
                 <p>Type matchup below</p>
                 <input type="text" name="character" value={this.state.character} onChange={this.handleChange}/>
                 <form onSubmit={this.createNote}>
-                    Note content: <br/>
+                    New note content: <br/>
                     <input type="text" name="contents" onChange={this.handleChange}></input>
                     <input type="submit" value="Submit"/>
                 </form>

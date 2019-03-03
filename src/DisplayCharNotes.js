@@ -9,9 +9,9 @@ class DisplayCharNotes extends Component{
     render(){
         try {
             return(
-                <dl>
+                <dl className="noteDisplay">
                     {this.props.notes.map(item =>(
-                        <ul>
+                        <ul className="displayIndividualNote">
                             <p>Against: {item.vsCharacter}</p>
                             <p>{item.contents}</p>
                             <DeleteNoteButton id={item.noteID}/>

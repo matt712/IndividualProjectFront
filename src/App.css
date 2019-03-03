@@ -53,3 +53,14 @@ h1{
   right:1%;
   text-align: right;
 }
+.noteDisplay{
+  text-align:left;
+  width:75%;
+}
+.displayIndividualNote{
+  border-style: solid;
+  border-color: blue;
+}
+.charSelectBox{
+  display:inline;
+}
