@@ -26,12 +26,15 @@ class AccountSettings extends Component{
         e.preventDefault();
         var url = `http://localhost:8080/IndividualProject/api/user/updateUser/${this.props.user}`;
         var password = this.state.password;
-        Axios.put(url, password).then(function(response){
-            alert("Account updated");
-            console.log(response);
-        }).catch(function(error) {
-            alert("Update failed, \n Try a different username");
-        });
+        if(password === this.state.confirmPassword){
+            Axios.put(url, password).then(function(response){
+                alert("Account updated");
+            }).catch(function(error) {
+                alert("Update failed, \n Try a different username");
+            });
+        }else{
+            alert("Passwords do not match")
+        }
     }
     render(){
         return(

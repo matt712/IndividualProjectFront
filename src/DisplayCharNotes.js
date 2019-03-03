@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import DeleteNoteButton from './DeleteNoteButton';
 
 
 class DisplayCharNotes extends Component{
@@ -6,15 +7,15 @@ class DisplayCharNotes extends Component{
         super(props);
     }
     render(){
-        console.log(this.props.notes);
         try {
             return(
                 <dl>
                     {this.props.notes.map(item =>(
-                        <React.Fragment key={item.id}>
-                            <dt>Against: {item.vsCharacter}</dt>
-                            <dt>{item.contents}</dt>
-                        </React.Fragment>    
+                        <ul>
+                            <p>Against: {item.vsCharacter}</p>
+                            <p>{item.contents}</p>
+                            <DeleteNoteButton id={item.noteID}/>
+                        </ul>    
                     ))}
                 </dl>
             );
