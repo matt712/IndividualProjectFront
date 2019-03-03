@@ -34,7 +34,6 @@ class CreateAccount extends Component{
         }
     }
     render(){
-        const user = this.props.user;
         return(
             <div className="createBox">
             <h2>Sign up</h2>

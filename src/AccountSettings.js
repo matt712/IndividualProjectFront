@@ -4,7 +4,7 @@ import Axios from 'axios';
 class AccountSettings extends Component{
     constructor(props){
         super(props)
-        this.state = { username: "", password: ""}
+        this.state = { password: ""}
         this.updateState = (e) =>{
             const value = e.target.value;
             const name = e.target.name;
@@ -14,7 +14,7 @@ class AccountSettings extends Component{
         }
     }
     deleteAccount =()=>{
-        var url = `http://localhost:8080/IndividualProject/api/user/deleteUser/${this.props.username}`;
+        var url = `http://localhost:8080/IndividualProject/api/user/deleteUser/${this.props.user}`;
         Axios.delete(url).then(function(response){
             alert("Account successfully deleted");
         }).catch(function(error){
@@ -24,12 +24,11 @@ class AccountSettings extends Component{
     }
     updateAccount = (e)=>{
         e.preventDefault();
-        var url = `http://localhost:8080/IndividualProject/api/user/updateUser/${this.props.username}`;
-        var username = this.state.username;
+        var url = `http://localhost:8080/IndividualProject/api/user/updateUser/${this.props.user}`;
         var password = this.state.password;
-        var body = { username, password };
-        Axios.put(url, body).then(function(response){
+        Axios.put(url, password).then(function(response){
             alert("Account updated");
+            console.log(response);
         }).catch(function(error) {
             alert("Update failed, \n Try a different username");
         });

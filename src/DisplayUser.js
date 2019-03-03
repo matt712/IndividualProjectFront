@@ -40,7 +40,7 @@ class DisplayUser extends Component{
                 <div>
                     <p className="DisplayUser">user: {this.props.username}</p>
                     <button className="LogoutButton" type="button" onClick={this.props.handleLogout}>Logout</button>
-                    <AccountSettings handleLogout={this.handleLogout} handleDisplaySettings={this.handleDisplaySettings}/>
+                    <AccountSettings handleLogout={this.handleLogout} handleDisplaySettings={this.handleDisplaySettings} user={this.props.username}/>
                 </div>
             )
         }
