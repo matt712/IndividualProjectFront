@@ -7,17 +7,18 @@ class Login extends Component{
             username:"Matt",
             password:"eggs"
         };
-        this.updateState = (e) =>{
-            const value = e.target.value;
-            const name = e.target.name;
-            this.setState({
-                [name]: value
-            });
-        }
+        this.updateState = this.updateState.bind(this);
         this.handleLogin = (e) =>{
             e.preventDefault();
             this.props.handleLogin(this.state.username, this.state.password);
         }
+    }
+    updateState = (e) =>{
+        const value = e.target.value;
+        const name = e.target.name;
+        this.setState({
+            [name]: value
+        })
     }
     render(){
         return(

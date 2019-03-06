@@ -13,6 +13,7 @@ class CharSelectionBox extends Component{
             const value = e.target.value;
             const name = e.target.name;
             this.setState({[name]: value});
+            console.log(this.state.character);
             this.getNotes();
         }
         this.createNote = (e) =>{
@@ -33,6 +34,7 @@ class CharSelectionBox extends Component{
     getNotes(){
         var url = `http://localhost:8080/IndividualProject/api/MatchUpNote/getUsersNoteForMatchup/${this.props.username}&${this.state.character}`;
         var self = this;
+        console.log(this.state.character);
         Axios.get(url).then(function(response){
             var tempNotes = response.data;
             self.setState({notes: tempNotes});
@@ -41,6 +43,7 @@ class CharSelectionBox extends Component{
         });
     }
     render(){
+
         return (
             <div className="charSelectBox">
                 <p>Type matchup below</p>

@@ -24,7 +24,7 @@ class AccountSettings extends Component{
     }
     updateAccount = (e)=>{
         e.preventDefault();
-        var url = `http://localhost:8080/IndividualProject/api/user/updateUser/${this.props.user}`;
+        var url = `http://localhost:8080/IndividualProject/api/user/updateUserPassword/${this.props.user}`;
         var password = this.state.password;
         if(password === this.state.confirmPassword){
             Axios.put(url, password).then(function(response){

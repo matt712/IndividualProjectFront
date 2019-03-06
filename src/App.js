@@ -25,18 +25,19 @@ class App extends Component {
     });
   }
 
-  handleLogin =(username, password)=>{
+  handleLogin =(user2, pass)=>{
     var self = this;
-    var url = `http://localhost:8080/IndividualProject/api/user/getAUser/${username}`;
-    Axios.get(url).then(function(response){
-      var user2 = response.data.username;
-      if(password === response.data.password){
-        self.setState({loggedIn:true, user:user2});
+    var url = `http://localhost:8080/IndividualProject/api/user/LoginUser`;
+    var body = { username:user2, password:pass };
+    console.log(body);
+    Axios.post(url, body).then(function(response){
+      if(response.data.message === "Correct Password"){
+        self.setState({loggedIn: true, user: user2});
       }else{
-        alert("Wrong password");
+        alert(response.data.message);
       }
     }).catch(function(error){
-      alert("Wrong username");
+      alert("problem");
     });
   }
   render() {

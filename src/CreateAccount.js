@@ -22,6 +22,7 @@ class CreateAccount extends Component{
             var username = this.state.username;
             var password =this.state.password;
             var body = { username, password };
+            console.log(body);
             if(this.state.password === this.state.confirmPassword){
                 Axios.post(url,body).then(function(response){
                     alert(response.data.message);
