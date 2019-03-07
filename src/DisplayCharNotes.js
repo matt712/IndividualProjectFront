@@ -12,14 +12,14 @@ class DisplayCharNotes extends Component{
         var url = `http://localhost:8080/IndividualProject/api/MatchUpNote/getUsersNoteForMatchup/${this.props.username}&${this.props.character}`;
         console.log(url);
         var self = this;
-        var tempNotes ="fuck";
+        var tempNotes ="";
         console.log(this.props.character);
         Axios.get(url).then(function(response){
             var tempNotes = response.data;
             console.log(tempNotes);
             self.setState({notes:tempNotes});
         }).catch(function(error){
-            console.log("fucked");
+            console.log("problem");
             return "Please enter something";
         });
     }
