@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import DisplayCharNotes from './DisplayCharNotes';
 import Axios from 'axios';
+import DisplayCharNotes from './DisplayCharNotes';
 
 class CharSelectionBox extends Component{
     constructor(props){
@@ -13,8 +13,6 @@ class CharSelectionBox extends Component{
             const value = e.target.value;
             const name = e.target.name;
             this.setState({[name]: value});
-            console.log(this.state.character);
-            this.getNotes();
         }
         this.createNote = (e) =>{
             e.preventDefault();
@@ -31,17 +29,6 @@ class CharSelectionBox extends Component{
             });
         }
     }
-    getNotes(){
-        var url = `http://localhost:8080/IndividualProject/api/MatchUpNote/getUsersNoteForMatchup/${this.props.username}&${this.state.character}`;
-        var self = this;
-        console.log(this.state.character);
-        Axios.get(url).then(function(response){
-            var tempNotes = response.data;
-            self.setState({notes: tempNotes});
-        }).catch(function(error){
-            console.log("problem");
-        });
-    }
     render(){
 
         return (
@@ -53,7 +40,7 @@ class CharSelectionBox extends Component{
                     <input type="text" name="contents" onChange={this.handleChange}></input>
                     <input type="submit" value="Submit"/>
                 </form>
-                <DisplayCharNotes notes={this.state.notes}/>
+                <DisplayCharNotes character={this.state.character} username={this.props.username}/>
             </div>
         )
     }
