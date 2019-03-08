@@ -23,6 +23,18 @@
     transform: rotate(360deg);
   }
 }
+button{
+  border-radius: 2px;
+  color:white;
+  background-color: blue;
+  border-color: blue;
+}
+input [type=button],[type=submit]{
+  border-radius: 2px;
+  color:white;
+  background-color: blue;
+  border-color: blue;
+}
 h1{
   text-align: center;
 }

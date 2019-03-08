@@ -30,7 +30,7 @@ class DisplayUser extends Component{
         if(this.state.displaySettings===false){
             return(
                 <div>
-                    <p className="DisplayUser">user: {this.props.username}</p>
+                    <p className="DisplayUser">USER: {this.props.username}</p>
                     <button className="LogoutButton" type="button" onClick={this.props.handleLogout}>Logout</button>
                     <button className="SettingsButton" type="button" onClick={this.handleDisplaySettings}>Settings</button>
                 </div>
