@@ -7,7 +7,7 @@ class DeleteNoteButton extends Component{
         this.state = {updating: false};
     }
     deleteNote =()=>{
-       var url = `http://35.197.226.151:8888/IndividualProject/api/MatchUpNote/deleteMatchUpNote/${this.props.id}`
+       var url = `http://35.197.226.151:8888/IndividualProject/api/MatchUpNote/deleteMatchUpNote/${this.props.id}`;
        Axios.delete(url).then(function(response){
            
        }).catch(function(response){
