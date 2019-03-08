@@ -9,7 +9,7 @@ class DisplayCharNotes extends Component{
         this.state = ({notes: ""});
     }
     async getNotes(){
-        var url = `http://localhost:8080/IndividualProject/api/MatchUpNote/getUsersNoteForMatchup/${this.props.username}&${this.props.character}`;
+        var url = `http://35.197.226.151:8888/IndividualProject/api/MatchUpNote/getUsersNoteForMatchup/${this.props.username}&${this.props.character}`;
         console.log(url);
         var self = this;
         var tempNotes ="";

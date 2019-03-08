@@ -7,7 +7,7 @@ class DeleteNoteButton extends Component{
         this.state = {updating: false};
     }
     deleteNote =()=>{
-       var url = `http://localhost:8080/IndividualProject/api/MatchUpNote/deleteMatchUpNote/${this.props.id}`
+       var url = `http://35.197.226.151:8888/IndividualProject/api/MatchUpNote/deleteMatchUpNote/${this.props.id}`
        Axios.delete(url).then(function(response){
            
        }).catch(function(response){
@@ -20,7 +20,7 @@ class DeleteNoteButton extends Component{
     updateNote = (e) =>{
         if(this.state.updating===true){
             e.preventDefault();
-            var url = `http://localhost:8080/IndividualProject/api/MatchUpNote/updateMatchupNote/${this.props.id}`;
+            var url = `http://35.197.226.151:8888/IndividualProject/api/MatchUpNote/updateMatchupNote/${this.props.id}`;
             var tempCont = this.state.contents;
             Axios.put(url, tempCont).then(function(response){
 

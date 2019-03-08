@@ -18,7 +18,7 @@ class CreateAccount extends Component{
         }
         this.createAcc = (e) =>{
             e.preventDefault();
-            var url = `http://localhost:8080/IndividualProject/api/user/createUser`
+            var url = `http://35.197.226.151:8888/IndividualProject/api/user/createUser`
             var username = this.state.username;
             var password =this.state.password;
             var body = { username, password };

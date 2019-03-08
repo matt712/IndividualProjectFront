@@ -27,7 +27,7 @@ class App extends Component {
 
   handleLogin =(user2, pass)=>{
     var self = this;
-    var url = `http://localhost:8080/IndividualProject/api/user/LoginUser`;
+    var url = `http://35.197.226.151:888/IndividualProject/api/user/LoginUser`;
     var body = { username:user2, password:pass };
     console.log(body);
     Axios.post(url, body).then(function(response){

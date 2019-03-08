@@ -16,7 +16,7 @@ class CharSelectionBox extends Component{
         }
         this.createNote = (e) =>{
             e.preventDefault();
-            var url = `http://localhost:8080/IndividualProject/api/MatchUpNote/createMatchupNote`;
+            var url = `http://35.197.226.151:8888/IndividualProject/api/MatchUpNote/createMatchupNote`;
             var tempCharacter = this.state.character;
             var tempCont = this.state.contents;
             var tempUser = this.props.username;
