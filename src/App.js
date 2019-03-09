@@ -61,7 +61,6 @@ class App extends Component {
         <HeadText/>
         <Login handleLogin={this.handleLogin}/>
         <CreateAccount/>
-        <p>PipelineTest</p>
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p className="App-text">

@@ -4,8 +4,8 @@ class Login extends Component{
     constructor(props){
         super(props);
         this.state={
-            username:"Matt",
-            password:"eggs"
+            username:"",
+            password:""
         };
         this.updateState = this.updateState.bind(this);
         this.handleLogin = (e) =>{
@@ -26,7 +26,7 @@ class Login extends Component{
             <h2>Log in</h2>
                 <form onSubmit={this.handleLogin}>
                     username: <br/>
-                    <input type="text" name="username" value={this.state.username} onChange={this.updateState}/>
+                    <input type="text" name="username" placeholder="Enter username here" value={this.state.username} onChange={this.updateState}/>
                      <br/>password: <br/>
                     <input type="password" name="password" value={this.state.password} onChange={this.updateState}/>
                     <br/>

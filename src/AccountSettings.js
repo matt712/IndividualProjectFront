@@ -14,7 +14,7 @@ class AccountSettings extends Component{
         }
     }
     deleteAccount =()=>{
-        var url = `http://localhost:8080/IndividualProject/api/user/deleteUser/${this.props.user}`;
+        var url = `http://35.197.226.151:8888/IndividualProject/api/user/deleteUser/${this.props.user}`;
         Axios.delete(url).then(function(response){
             alert(response.data.message);
         }).catch(function(error){
@@ -24,7 +24,7 @@ class AccountSettings extends Component{
     }
     updateAccount = (e)=>{
         e.preventDefault();
-        var url = `http://localhost:8080/IndividualProject/api/user/updateUserPassword/${this.props.user}`;
+        var url = `http://35.197.226.151:8888/IndividualProject/api/user/updateUserPassword/${this.props.user}`;
         var password = this.state.password;
         if(password === this.state.confirmPassword){
             Axios.put(url, password).then(function(response){

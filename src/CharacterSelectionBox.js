@@ -33,7 +33,7 @@ class CharSelectionBox extends Component{
         return (
             <div className="charSelectBox">
                 <p>Type matchup below</p>
-                <input type="text" name="character" value={this.state.character} onChange={this.handleChange}/>
+                <input type="text" name="character" placeholder="Enter a matchup here" value={this.state.character} onChange={this.handleChange}/>
                 <form onSubmit={this.createNote}>
                     New note content: <br/>
                     <input type="text" name="contents" onChange={this.handleChange}></input>
