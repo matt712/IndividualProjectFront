@@ -8,15 +8,12 @@ class DisplayCharNotes extends Component{
         super(props);
         this.state = ({notes: ""});
     }
-    async getNotes(){
+    getNotes(){
         var url = `http://35.197.226.151:8888/IndividualProject/api/MatchUpNote/getUsersNoteForMatchup/${this.props.username}&${this.props.character}`;
-        console.log(url);
         var self = this;
         var tempNotes ="";
-        console.log(this.props.character);
-        await Axios.get(url).then(function(response){
+        Axios.get(url).then(function(response){
             var tempNotes = response.data;
-            console.log(tempNotes);
             self.setState({notes:tempNotes});
         }).catch(function(error){
             console.log("problem");

@@ -29,7 +29,6 @@ class App extends Component {
     var self = this;
     var url = `http://35.197.226.151:8888/IndividualProject/api/user/LoginUser`;
     var body = { username:user2, password:pass };
-    console.log(body);
     Axios.post(url, body).then(function(response){
       if(response.data.message === "Correct Password"){
         self.setState({loggedIn: true, user: user2});
