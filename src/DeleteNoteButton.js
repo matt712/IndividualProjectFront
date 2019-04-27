@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import * as constants from './Constants.js';
 
 class DeleteNoteButton extends Component{
     constructor(props){
@@ -7,7 +8,7 @@ class DeleteNoteButton extends Component{
         this.state = {updating: false};
     }
     deleteNote =()=>{
-       var url = `http://localhost:8080/IndividualProject/api/MatchUpNote/deleteMatchUpNote/${this.props.id}`
+       var url = constants.URL_START + constants.DELETE_NOTE + this.props.id;
        Axios.delete(url).then(function(response){
            
        }).catch(function(response){
@@ -20,7 +21,7 @@ class DeleteNoteButton extends Component{
     updateNote = (e) =>{
         if(this.state.updating===true){
             e.preventDefault();
-            var url = `http://localhost:8080/IndividualProject/api/MatchUpNote/updateMatchupNote/${this.props.id}`;
+            var url = constants.URL_START + constants.UPDATE_NOTE + this.props.id;
             var tempCont = this.state.contents;
             Axios.put(url, tempCont).then(function(response){
 

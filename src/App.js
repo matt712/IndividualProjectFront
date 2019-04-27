@@ -6,6 +6,7 @@ import Login from './Login';
 import DisplayUser from './DisplayUser';
 import CreateAccount from './CreateAccount';
 import CharSelectionBox from './CharacterSelectionBox';
+import * as constants from './Constants.js';
 
 import Axios from 'axios';
 
@@ -27,9 +28,8 @@ class App extends Component {
 
   handleLogin =(user2, pass)=>{
     var self = this;
-    var url = `http://localhost:8080/IndividualProject/api/user/LoginUser`;
+    var url = constants.URL_START + constants.LOGIN_USER;
     var body = { username:user2, password:pass };
-    console.log(body);
     Axios.post(url, body).then(function(response){
       if(response.data.message === "Correct Password"){
         self.setState({loggedIn: true, user: user2});
