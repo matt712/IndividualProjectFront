@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import * as constants from './Constants.js';
 
 class AccountSettings extends Component{
     constructor(props){
@@ -14,7 +15,7 @@ class AccountSettings extends Component{
         }
     }
     deleteAccount =()=>{
-        var url = `http://35.197.226.151:8888/IndividualProject/api/user/deleteUser/${this.props.user}`;
+        var url = constants.URL_START + constants.DELETE_USER + this.props.user;
         Axios.delete(url).then(function(response){
             alert(response.data.message);
         }).catch(function(error){
@@ -24,7 +25,7 @@ class AccountSettings extends Component{
     }
     updateAccount = (e)=>{
         e.preventDefault();
-        var url = `http://35.197.226.151:8888/IndividualProject/api/user/updateUserPassword/${this.props.user}`;
+        var url = constants.URL_START + constants.UPDATE_PASSWORD + this.props.user;
         var password = this.state.password;
         if(password === this.state.confirmPassword){
             Axios.put(url, password).then(function(response){

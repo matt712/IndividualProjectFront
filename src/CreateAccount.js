@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
+import * as constants from './Constants.js';
 
 class CreateAccount extends Component{
     constructor(props){
@@ -18,7 +19,7 @@ class CreateAccount extends Component{
         }
         this.createAcc = (e) =>{
             e.preventDefault();
-            var url = `http://35.197.226.151:8888/IndividualProject/api/user/createUser`
+            var url = constants.URL_START + constants.CREATE_USER;
             var username = this.state.username;
             var password =this.state.password;
             var body = { username, password };

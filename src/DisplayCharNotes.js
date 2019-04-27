@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import DeleteNoteButton from './DeleteNoteButton';
 import Axios from 'axios';
+import * as constants from './Constants.js';
 
 
 class DisplayCharNotes extends Component{
@@ -9,7 +10,7 @@ class DisplayCharNotes extends Component{
         this.state = ({notes: ""});
     }
     getNotes(){
-        var url = `http://35.197.226.151:8888/IndividualProject/api/MatchUpNote/getUsersNoteForMatchup/${this.props.username}&${this.props.character}`;
+        var url = constants.URL_START + constants.GET_NOTES + this.props.username + "&" + this.props.character;
         var self = this;
         var tempNotes ="";
         Axios.get(url).then(function(response){
