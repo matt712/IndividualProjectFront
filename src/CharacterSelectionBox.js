@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import DisplayCharNotes from './DisplayCharNotes';
+import * as constants from './Constants.js';
 
 class CharSelectionBox extends Component{
     constructor(props){
