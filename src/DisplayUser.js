@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import AccountSettings from './AccountSettings';
+import * as constants from './Constants.js';
 
 class DisplayUser extends Component{
     constructor(props){
